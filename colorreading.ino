@@ -8,11 +8,11 @@
 // Stores frequency read by the photodiodes
 int redFrequency = 0;
 int greenFrequency = 0;
-int blueFrequency = 0;
+int blueFrequency = 0; //only blue frequency is used since I'm only measuring blue food coloring. The code can be easily edited to read all or red or green.
 
 void setup() {
   // Setting the outputs
-  pinMode(S0, OUTPUT);
+  pinMode(S0, OUTPUT); 
   pinMode(S1, OUTPUT);
   pinMode(S2, OUTPUT);
   pinMode(S3, OUTPUT);
@@ -36,6 +36,6 @@ void loop() { //only blue is being read
   blueFrequency = pulseIn(sensorOut, LOW);
   
   // Printing the BLUE (B) value 
-  Serial.println(blueFrequency);
-  delay(1000);
+  Serial.println(blueFrequency); //change to redFrequency or greenFrequency to read the values for each or just add another line to read them simultaneously. 
+  delay(500); //the sensor will collect data every 0.5 seconds but it can be much quicker. Made it lower for easier data readings
 }
